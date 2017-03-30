@@ -115,6 +115,7 @@ public class Ticket_details extends Fragment {
             {
                 if(d[0] <= currentDT[0])
                 {
+                    //hisnsf
                     Log.d("day", String.valueOf(currentDT[0]-d[0]));
                     timecal.setText(currentDT[0]-d[0]);
                     //Toast.makeText(getContext(),String.valueOf(currentDT[0]-d[0]),Toast.LENGTH_LONG).show();
