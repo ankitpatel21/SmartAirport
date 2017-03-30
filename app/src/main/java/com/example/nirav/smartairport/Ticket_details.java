@@ -95,6 +95,7 @@ public class Ticket_details extends Fragment {
         for(int i=0;i<currentDateTiem.length;i++)
         {
             currentDT[i] = Integer.parseInt(currentDateTiem[i]);
+            Log.d("date",String.valueOf(currentDT[i]));
         }
         for (int i=0;i<date.length;i++)
         {
@@ -108,6 +109,7 @@ public class Ticket_details extends Fragment {
         }
 
 //        Toast.makeText(this.getContext(),String.valueOf(currentDT[2])+String.valueOf(d[2]),Toast.LENGTH_LONG).show();
+        Log.d("cd",String.valueOf(d[0]));
         Log.d("day1", String.valueOf(currentDT[0]-d[0]));
         if(d[2] == currentDT[2])
         {
@@ -115,10 +117,10 @@ public class Ticket_details extends Fragment {
             {
                 if(d[0] <= currentDT[0])
                 {
-                    //hisnsf
+
                     Log.d("day", String.valueOf(currentDT[0]-d[0]));
-                    timecal.setText(currentDT[0]-d[0]);
-                    //Toast.makeText(getContext(),String.valueOf(currentDT[0]-d[0]),Toast.LENGTH_LONG).show();
+                    timecal.setText(String.valueOf(currentDT[0]-d[0]));
+                    //Toast.makeText(getActivity(),String.valueOf(currentDT[0]-d[0]),Toast.LENGTH_LONG).show();
                 }
             }
         }
