@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (user.getEmail() != null | user.getEmail().length() == 0)
         {
+            //change
             Uname.setText(user.getEmail());
             Toast.makeText(getApplicationContext(), user.getEmail(), Toast.LENGTH_SHORT).show();
         }
