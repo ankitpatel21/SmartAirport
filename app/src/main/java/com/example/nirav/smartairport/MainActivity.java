@@ -43,18 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-
-        View header = navigationView.getHeaderView(0);
-        Uname = (TextView) header.findViewById(R.id.Uname);
-
-        if (user.getEmail() != null | user.getEmail().length() == 0)
-        {
-            //change
-            Uname.setText(user.getEmail());
-            Toast.makeText(getApplicationContext(), user.getEmail(), Toast.LENGTH_SHORT).show();
-        }
-
         mToolbar=(Toolbar)findViewById(R.id.nav_action);
         setSupportActionBar(mToolbar);
 

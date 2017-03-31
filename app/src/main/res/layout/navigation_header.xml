@@ -15,7 +15,7 @@
         android:id="@+id/Uname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello"
+        android:text="Hello, User"
         android:textColor="#FFFFFF"
         android:textAlignment="center"
         android:textSize="20dp"/>
