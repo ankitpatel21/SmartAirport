@@ -12,6 +12,7 @@
         android:paddingTop="7dp"/>
 
     <TextView
+        android:id="@+id/Uname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hello"

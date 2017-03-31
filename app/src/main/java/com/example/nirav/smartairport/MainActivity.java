@@ -12,7 +12,11 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     private DrawerLayout mDrawerlayout;
     private ActionBarDrawerToggle mToggle;
+    private TextView Uname;
 
     private Toolbar mToolbar;
 
@@ -37,6 +42,17 @@ public class MainActivity extends AppCompatActivity {
         startService(new Intent(getApplicationContext(),BagChkService.class));
 
         firebaseAuth = FirebaseAuth.getInstance();
+
+        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+
+        View header = navigationView.getHeaderView(0);
+        Uname = (TextView) header.findViewById(R.id.Uname);
+
+        if (user.getEmail() != null | user.getEmail().length() == 0)
+        {
+            Uname.setText(user.getEmail());
+            Toast.makeText(getApplicationContext(), user.getEmail(), Toast.LENGTH_SHORT).show();
+        }
 
         mToolbar=(Toolbar)findViewById(R.id.nav_action);
         setSupportActionBar(mToolbar);

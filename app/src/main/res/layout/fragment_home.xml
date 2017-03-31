@@ -5,11 +5,125 @@
     tools:context="com.example.nirav.smartairport.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello User"
-        android:gravity="center"
-        android:textSize="35dp"/>
+        android:layout_height="match_parent">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_disp"
+            android:paddingTop="20dp"
+            android:paddingLeft="20dp"
+            android:textSize="25dp"
+            android:text="WELCOME TO"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_disp1"
+            android:layout_below="@+id/text_disp"
+            android:paddingLeft="20dp"
+            android:textSize="35dp"
+            android:text="SCET"/>
+
+        <RelativeLayout
+            android:layout_below="@+id/text_disp1"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:textColor="#FFFFFF"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:id="@+id/btn_map"
+                android:text="Map"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#D7009688"/>
+
+            <Button
+                android:textColor="#FFFFFF"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:id="@+id/btn_ticket_scan"
+                android:text="ticket scan"
+                android:layout_marginRight="5dp"
+                android:background="#D7009688"
+                android:layout_toRightOf="@+id/btn_map"/>
+
+            <Button
+                android:textColor="#FFFFFF"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:background="#D7009688"
+                android:id="@+id/btn_ticket_details"
+                android:text="Ticket Details"
+                android:layout_toRightOf="@+id/btn_ticket_scan"/>
+
+            <Button
+                android:textColor="#FFFFFF"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:id="@+id/btn_bag_scan"
+                android:background="#D7009688"
+                android:text="Bag scan"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_below="@+id/btn_map"/>
+
+            <Button
+                android:textColor="#FFFFFF"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:background="#D7009688"
+                android:id="@+id/btn_setting"
+                android:text="Setting"
+                android:layout_toRightOf="@+id/btn_bag_scan"
+                android:layout_marginRight="5dp"
+                android:layout_below="@+id/btn_map"/>
+
+            <Button
+                android:textColor="#FFFFFF"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:id="@+id/btn_profile"
+                android:text="profile"
+                android:background="#D7009688"
+                android:layout_toRightOf="@+id/btn_setting"
+                android:layout_below="@+id/btn_map"/>
+
+            <Button
+                android:textColor="#FFFFFF"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:background="#D7009688"
+                android:id="@+id/btn_food"
+                android:layout_marginRight="5dp"
+                android:text="Food &amp; Drink"
+                android:layout_below="@+id/btn_bag_scan"/>
+
+            <Button
+                android:textColor="#FFFFFF"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:id="@+id/btn_shop"
+                android:text="Shopping"
+                android:layout_marginRight="5dp"
+                android:background="#D7009688"
+                android:layout_toRightOf="@+id/btn_food"
+                android:layout_below="@+id/btn_bag_scan"/>
+
+            <Button
+                android:textColor="#FFFFFF"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:id="@+id/btn_info"
+                android:text="Information"
+                android:background="#D7009688"
+                android:layout_toRightOf="@+id/btn_shop"
+                android:layout_below="@+id/btn_bag_scan"/>
+        </RelativeLayout>
+    </RelativeLayout>
 </FrameLayout>
