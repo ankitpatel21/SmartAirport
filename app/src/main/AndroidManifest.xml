@@ -30,7 +30,9 @@
         <service
             android:name=".BagChkService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity android:name=".FeedBack"></activity>
     </application>
 
 </manifest>

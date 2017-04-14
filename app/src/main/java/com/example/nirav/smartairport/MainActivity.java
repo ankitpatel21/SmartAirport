@@ -111,6 +111,11 @@ public class MainActivity extends AppCompatActivity {
                         mDrawerlayout.closeDrawer(Gravity.LEFT);
                         
                         break;
+
+                    case R.id.nav_feedback:
+                        startActivity(new Intent(getApplicationContext(),FeedBack.class));
+
+
                 }
                 return true;
             }
