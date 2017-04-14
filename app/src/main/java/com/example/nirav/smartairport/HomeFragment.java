@@ -16,7 +16,7 @@ import android.widget.Button;
 public class HomeFragment extends Fragment {
 
 
-    Button btn_map,btn_profile,btn_ticket_scan,btn_ticket_details;
+    Button btn_map,btn_profile,btn_ticket_scan,btn_ticket_details,btn_setting;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -31,6 +31,7 @@ public class HomeFragment extends Fragment {
         btn_profile = (Button)getView().findViewById(R.id.btn_profile);
         btn_ticket_scan=(Button)getView().findViewById(R.id.btn_ticket_scan);
         btn_ticket_details=(Button)getView().findViewById(R.id.btn_ticket_details);
+        btn_setting = (Button)getView().findViewById(R.id.btn_setting);
 
         btn_map.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +63,14 @@ public class HomeFragment extends Fragment {
                 //TODO:error in send fragment .. send data to fragment
                 Ticket_details td = new Ticket_details();
                 getFragmentManager().beginTransaction().replace(R.id.main_container,td).commit();
+            }
+        });
+
+        btn_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setting st = new setting();
+                getFragmentManager().beginTransaction().replace(R.id.main_container,st).commit();
             }
         });
     }

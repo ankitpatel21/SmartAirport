@@ -1,0 +1,74 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.nirav.smartairport.setting">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="30dp"-->
+            <!--android:text="Select Theme"-->
+            <!--android:textStyle="bold"-->
+            <!--android:id="@+id/mode_txt"-->
+            <!--android:paddingBottom="10dp"/>-->
+        <!---->
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enable Dark Mode"
+            android:textSize="20dp"
+            android:id="@+id/dark_mode"
+            android:paddingBottom="5dp"
+            />
+
+        <!--<RadioGroup-->
+            <!--android:layout_below="@+id/mode_txt"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="5dp">-->
+            <!--<RadioButton-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Light Theme"-->
+                <!--android:id="@+id/light_mode"-->
+                <!--android:checked="true"-->
+                <!--android:textSize="20dp"-->
+                <!--android:padding="5dp" />-->
+
+            <!--<RadioButton-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Dark Theme"-->
+                <!--android:id="@+id/dark_theme"-->
+                <!--android:padding="5dp"-->
+                <!--android:textSize="20dp" />-->
+        <!--</RadioGroup>-->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dark_mode"
+            android:textSize="20dp"
+            android:text="Select Language"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:id="@+id/txview_lang"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txview_lang"
+            android:paddingTop="5dp"
+            android:id="@+id/language">
+
+        </Spinner>
+
+    </RelativeLayout>
+
+</FrameLayout>
