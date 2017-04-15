@@ -26,7 +26,7 @@ public class BagChkService extends Service {
 
     private android.os.Handler handler = new android.os.Handler();
 
-    String url="http://192.168.1.106/airport/bag_notification.php";
+    String url="http://172.16.1.41/airport/bag_notification.php";
     private FirebaseAuth firebaseAuth;
     public BagChkService() {
     }
@@ -36,7 +36,7 @@ public class BagChkService extends Service {
         onTaskRemoved(intent);
         firebaseAuth = FirebaseAuth.getInstance();
         final FirebaseUser user = firebaseAuth.getCurrentUser();
-        Toast.makeText(getApplicationContext(),"Sample Toast", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),"Sample Toast", Toast.LENGTH_SHORT).show();
         StringRequest stringRequest=new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
@@ -96,8 +96,8 @@ public class BagChkService extends Service {
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.user)
-                        .setContentTitle("Notifications Example ..")
-                        .setContentText("This is a test notification ..");
+                        .setContentTitle("Baggage Arrived")
+                        .setContentText("Get near baggage carousal as soon as possible");
 
         Intent notificationIntent = new Intent(this, MainActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
