@@ -17,6 +17,7 @@ public class HomeFragment extends Fragment {
 
 
     Button btn_map,btn_profile,btn_ticket_scan,btn_ticket_details,btn_setting;
+    Button btn_bag_scan;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -32,6 +33,7 @@ public class HomeFragment extends Fragment {
         btn_ticket_scan=(Button)getView().findViewById(R.id.btn_ticket_scan);
         btn_ticket_details=(Button)getView().findViewById(R.id.btn_ticket_details);
         btn_setting = (Button)getView().findViewById(R.id.btn_setting);
+        btn_bag_scan = (Button)getView().findViewById(R.id.btn_bag_scan);
 
         btn_map.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +64,9 @@ public class HomeFragment extends Fragment {
 
                 //TODO:error in send fragment .. send data to fragment
                 Ticket_details td = new Ticket_details();
+                Bundle arg = new Bundle();
+                arg.putString("t_barcode_no", "");
+                td.setArguments(arg);
                 getFragmentManager().beginTransaction().replace(R.id.main_container,td).commit();
             }
         });
@@ -71,6 +76,14 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 setting st = new setting();
                 getFragmentManager().beginTransaction().replace(R.id.main_container,st).commit();
+            }
+        });
+
+        btn_bag_scan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BagVerificationFragment bv=new BagVerificationFragment();
+                getFragmentManager().beginTransaction().replace(R.id.main_container,bv).commit();
             }
         });
     }

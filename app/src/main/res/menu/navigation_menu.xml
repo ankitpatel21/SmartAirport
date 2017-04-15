@@ -7,13 +7,25 @@
             android:icon="@mipmap/ic_person_black_24dp"
             android:title="My Account"></item>
 
+        <item android:id="@+id/nav_home"
+            android:icon="@mipmap/ic_person_black_24dp"
+            android:title="Home"></item>
+
         <item android:id="@+id/nav_barcode"
             android:icon="@mipmap/ic_scanner_black_24dp"
             android:title="Ticket Scan"></item>
 
+        <item android:id="@+id/nav_ticket_details"
+            android:icon="@mipmap/ic_scanner_black_24dp"
+            android:title="Ticket Details"></item>
+
         <item android:id="@+id/nav_map"
             android:icon="@mipmap/ic_directions_black_24dp"
             android:title="Map"></item>
+
+        <item android:id="@+id/nav_bag_scan"
+            android:icon="@mipmap/ic_scanner_black_24dp"
+            android:title="Bag Scan"></item>
 
         <item android:id="@+id/nav_logout"
             android:icon="@mipmap/ic_settings_power_black_24dp"

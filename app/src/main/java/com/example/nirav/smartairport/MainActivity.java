@@ -68,9 +68,18 @@ public class MainActivity extends AppCompatActivity {
                 {
                     case R.id.nav_account:
                         fragmentTransaction =getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container,new ProfileFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Profile");
+                        item.setChecked(true);
+                        mDrawerlayout.closeDrawer(Gravity.LEFT);
+                        break;
+
+                    case R.id.nav_home:
+                        fragmentTransaction =getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container,new HomeFragment());
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Account");
+                        getSupportActionBar().setTitle("Home");
                         item.setChecked(true);
                         mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
@@ -109,7 +118,27 @@ public class MainActivity extends AppCompatActivity {
                         getSupportActionBar().setTitle("Ticket Scan");
                         item.setChecked(true);
                         mDrawerlayout.closeDrawer(Gravity.LEFT);
-                        
+                        break;
+
+                    case R.id.nav_ticket_details:
+                        Ticket_details td = new Ticket_details();
+                        Bundle arg = new Bundle();
+                        arg.putString("t_barcode_no", "");
+                        td.setArguments(arg);
+                        fragmentTransaction =getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container,td).commit();
+                        getSupportActionBar().setTitle("Ticket Details");
+                        item.setChecked(true);
+                        mDrawerlayout.closeDrawer(Gravity.LEFT);
+                        break;
+
+                    case R.id.nav_bag_scan:
+                        fragmentTransaction =getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container,new BagVerificationFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Bag Barcode Scan");
+                        item.setChecked(true);
+                        mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
 
                     case R.id.nav_feedback:

@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -24,6 +26,8 @@ public class ProfileFragment extends Fragment {
 
     private Firebase ticketDetails;
     private FirebaseAuth firebaseAuth;
+    private Button btn_edit,btn_save;
+    private EditText edName,edNumner,edPassport,edAddress;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -33,9 +37,17 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        btn_edit=(Button)getView().findViewById(R.id.btnEdit);
+        btn_save=(Button)getView().findViewById(R.id.btnSave);
+        edName=(EditText)getView().findViewById(R.id.Pname);
+        edNumner=(EditText)getView().findViewById(R.id.Pnumber);
+        edPassport=(EditText)getView().findViewById(R.id.Ppassport);
+        edAddress=(EditText)getView().findViewById(R.id.Paddress);
+
+
         firebaseAuth = FirebaseAuth.getInstance();
         Firebase.setAndroidContext(this.getContext());
-        ticketDetails =new Firebase("https://smart-airpot.firebaseio.com/ticket_details");
+        ticketDetails =new Firebase("https://smart-airpot.firebaseio.com/");
 
         ticketDetails.addValueEventListener(new ValueEventListener() {
             @Override
@@ -52,6 +64,24 @@ public class ProfileFragment extends Fragment {
 
             @Override
             public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+        btn_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                edName.setEnabled(true);
+                edAddress.setEnabled(true);
+                edNumner.setEnabled(true);
+                btn_save.setEnabled(true);
+                btn_edit.setEnabled(false);
+            }
+        });
+
+        btn_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
             }
         });

@@ -1,6 +1,7 @@
 package com.example.nirav.smartairport;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -54,6 +55,12 @@ public class Ticket_details extends Fragment {
         data1 =(TextView)getView().findViewById(R.id.data);
         timecal = (TextView)getView().findViewById(R.id.timecal);
         t_barcode_no = getArguments().getString("t_barcode_no");
+
+        if (t_barcode_no.isEmpty())
+        {
+            ticket_scan ts=new ticket_scan();
+            getFragmentManager().beginTransaction().replace(R.id.main_container,ts).commit();
+        }
         //data1.setText(t_barcode_no);
 
 

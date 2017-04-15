@@ -8,52 +8,119 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:gravity="center_horizontal"
         android:layout_gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/name2"
-            android:paddingLeft="20dp"
-            android:paddingTop="30dp"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv1"
-            android:text="Name :"
-            android:textSize="25dp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:paddingLeft="20dp"
+            android:orientation="vertical"
             android:paddingTop="10dp"
-            android:id="@+id/mobile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/name2"
-            android:text="Mobile No. :"
-            android:textSize="25dp"
-            android:textStyle="bold"/>
-
-        <TextView
-
             android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:id="@+id/passport"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mobile"
-            android:text="Passport No. :"
-            android:textSize="25dp"
-            android:textStyle="bold"/>
+            android:paddingRight="20dp"
+            android:id="@+id/Lname2">
 
-        <TextView
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:id="@+id/address"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="50dp"
+                android:textSize="30dp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/name2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv1"
+                android:text="Name :"
+                android:textSize="25dp"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/Pname"
+                android:enabled="false"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/mobile"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Lname2"
+                android:text="Mobile No. :"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/Pnumber"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"/>
+
+            <TextView
+                android:id="@+id/passport"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mobile"
+                android:text="Passport No. :"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/Ppassport"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:enabled="false"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/passport"
+                android:text="Address :"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/Paddress"
+                android:inputType="textMultiLine"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:enabled="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/passport"
-            android:text="Address :"
-            android:textSize="25dp"
-            android:textStyle="bold"/>
+            android:layout_below="@+id/Lname2"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnEdit"
+                android:layout_width="wrap_content"
+                android:text="Edit"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:text="Save"
+                android:enabled="false"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
     </RelativeLayout>
 
