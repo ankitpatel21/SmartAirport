@@ -15,7 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="10dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:id="@+id/Lname2">
@@ -36,19 +35,19 @@
                 android:layout_below="@+id/tv1"
                 android:text="Name :"
                 android:textSize="25dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:textStyle="bold"/>
 
             <EditText
                 android:id="@+id/Pname"
                 android:enabled="false"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/mobile"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/Lname2"
@@ -58,14 +57,14 @@
 
             <EditText
                 android:id="@+id/Pnumber"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:enabled="false"/>
 
             <TextView
                 android:id="@+id/passport"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/mobile"
@@ -75,14 +74,14 @@
 
             <EditText
                 android:id="@+id/Ppassport"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:enabled="false"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/address"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/passport"
@@ -93,7 +92,7 @@
             <EditText
                 android:id="@+id/Paddress"
                 android:inputType="textMultiLine"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:enabled="false"/>

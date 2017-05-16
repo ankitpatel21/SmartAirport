@@ -1,5 +1,6 @@
 package com.example.nirav.smartairport;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -68,6 +69,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                final ProgressDialog progressDialog = ProgressDialog.show(LoginActivity.this, "Login", "Please wait...", false, false);
                 final String email=ed_email_id.getText().toString();
                 String password=ed_password.getText().toString();
 

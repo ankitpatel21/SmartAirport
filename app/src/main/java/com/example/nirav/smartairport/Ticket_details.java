@@ -2,7 +2,9 @@ package com.example.nirav.smartairport;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -30,6 +32,7 @@ import java.util.Map;
  */
 public class Ticket_details extends Fragment {
 
+    SharedPreferences sharedpreferences;
     private Firebase ticketDetails;
     private FirebaseAuth firebaseAuth;
     TextView data1, timecal;
@@ -56,7 +59,9 @@ public class Ticket_details extends Fragment {
         timecal = (TextView)getView().findViewById(R.id.timecal);
         t_barcode_no = getArguments().getString("t_barcode_no");
 
-        if (t_barcode_no.isEmpty())
+        sharedpreferences = PreferenceManager.getDefaultSharedPreferences(getContext().getApplicationContext());
+
+        if (t_barcode_no.isEmpty() && !sharedpreferences.contains("Ticket_ID"))
         {
             ticket_scan ts=new ticket_scan();
             getFragmentManager().beginTransaction().replace(R.id.main_container,ts).commit();
@@ -65,33 +70,48 @@ public class Ticket_details extends Fragment {
 
 
 
+        if (!t_barcode_no.isEmpty() && !sharedpreferences.contains("Ticket_ID")) {
 
-        ticketDetails.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot pass : dataSnapshot.getChildren())
-                {
-                    Map<String, String> map=pass.getValue(Map.class);
-                    if(map.get("t_barcode_no").equals(t_barcode_no))
-                    {
-                        Calendar c = Calendar.getInstance();
-                        SimpleDateFormat df = new SimpleDateFormat("dd:MM:yyyy:HH:mm:ss");
-                        String formattedDate = df.format(c.getTime());
-                        data1.setText("\nTicket ID : "+ map.get("t_id")+ "\nFlight Number : " + map.get("flight_no")+ "\nFlight Type : " + map.get("flight_type")+ "\nJourney Date : " + map.get("j_date")+ "\nJourney Time : " + map.get("j_time")+ "\nJourney : " + map.get("SA_name") + " To " + map.get("DA_name"));
-                        currentDateTiem = formattedDate.split(":");
-                        time = map.get("j_time").split(":");
-                        date = map.get("j_date").split("-");
+            Toast.makeText(getContext().getApplicationContext(),"null",Toast.LENGTH_SHORT).show();
+            ticketDetails.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot pass : dataSnapshot.getChildren()) {
+                        Map<String, String> map = pass.getValue(Map.class);
+                        if (map.get("t_barcode_no").equals(t_barcode_no)) {
+                            Calendar c = Calendar.getInstance();
+                            SimpleDateFormat df = new SimpleDateFormat("dd:MM:yyyy:HH:mm:ss");
+                            String formattedDate = df.format(c.getTime());
+                            data1.setText("\nTicket ID : " + map.get("t_id") + "\nFlight Number : " + map.get("flight_no") + "\nFlight Type : " + map.get("flight_type") + "\nJourney Date : " + map.get("j_date") + "\nJourney Time : " + map.get("j_time") + "\nJourney : " + map.get("SA_name") + " To " + map.get("DA_name"));
+                            currentDateTiem = formattedDate.split(":");
+                            time = map.get("j_time").split(":");
+                            date = map.get("j_date").split("-");
 
-                        chkTime(time,date);
+                            chkTime(time, date);
+                            SharedPreferences.Editor editor = sharedpreferences.edit();
+                            editor.putString("Ticket_ID", map.get("t_id"));
+                            editor.putString("flight_no", map.get("flight_no"));
+                            editor.putString("flight_type", map.get("flight_type"));
+                            editor.putString("j_date", map.get("j_date"));
+                            editor.putString("j_time", map.get("j_time"));
+                            editor.putString("SA_name", map.get("SA_name"));
+                            editor.putString("DA_name", map.get("DA_name"));
+                            editor.commit();
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
+                @Override
+                public void onCancelled(FirebaseError firebaseError) {
 
-            }
-        });
+                }
+            });
+        }
+        else
+        {
+            Toast.makeText(getContext().getApplicationContext(),"notnull",Toast.LENGTH_SHORT).show();
+            data1.setText("\nTicket ID : " + sharedpreferences.getString("Ticket_ID", "") + "\nFlight Number : " + sharedpreferences.getString("flight_no", "") + "\nFlight Type : " + sharedpreferences.getString("flight_type", "") + "\nJourney Date : " + sharedpreferences.getString("j_date", "") + "\nJourney Time : " + sharedpreferences.getString("j_time", "") + "\nJourney : " + sharedpreferences.getString("SA_name", "") + " To " + sharedpreferences.getString("DA_name", ""));
+        }
     }
 
     public void chkTime(String[] time, String[] date)

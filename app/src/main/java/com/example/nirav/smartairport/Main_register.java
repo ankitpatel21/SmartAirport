@@ -1,5 +1,6 @@
 package com.example.nirav.smartairport;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -65,6 +66,7 @@ public class Main_register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                final ProgressDialog progressDialog = ProgressDialog.show(Main_register.this, "Register", "Please wait...", false, false);
                 flag_status_reg=false;
            //     flag2=false;
 

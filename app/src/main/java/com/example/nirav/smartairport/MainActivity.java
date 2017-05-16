@@ -60,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Home");
 
         navigationView=(NavigationView) findViewById(R.id.navigation_view);
+        View navHeaderView=navigationView.getHeaderView(0);
+        /*View navHeaderView= navigationView.inflateHeaderView(R.layout.navigation_header);*/
+        Uname = (TextView) navHeaderView.findViewById(R.id.Uname);
+        if (firebaseAuth.getCurrentUser() != null)
+        {
+            Uname.setText(firebaseAuth.getCurrentUser().getEmail());
+        }
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
@@ -128,6 +135,15 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction =getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container,td).commit();
                         getSupportActionBar().setTitle("Ticket Details");
+                        item.setChecked(true);
+                        mDrawerlayout.closeDrawer(Gravity.LEFT);
+                        break;
+
+                    case R.id.nav_estimateTime:
+                        fragmentTransaction =getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container,new EstimateTimeFragment());
+                        fragmentTransaction.commit();
+                        getSupportActionBar().setTitle("Estimate TIme");
                         item.setChecked(true);
                         mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
